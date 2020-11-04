@@ -14,7 +14,7 @@ public class FilesGeneratorImplTest {
     @Test
     public void getFiles() throws IOException {
         filesGenerator.getFiles(
-                "D:\\IdeaProjects\\generate_text_files_from_lesson7_task2\\",
+                "src\\main\\java\\root\\lesson_7\\task_2\\generate_text_files",
                 3,
                 4,
                 array,
