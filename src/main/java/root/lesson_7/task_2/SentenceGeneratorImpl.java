@@ -16,6 +16,8 @@ public class SentenceGeneratorImpl implements SentenceGenerator {
     private static final List<String> ENDS = Arrays.asList(".", "!", "?");
     private static final Random RANDOM = new Random();
     private final WordGenerator wordGenerator;
+    private static final String space = " ";
+    private static final String comma = ",";
 
     public SentenceGeneratorImpl(WordGenerator wordGenerator) {
         this.wordGenerator = wordGenerator;
@@ -23,7 +25,6 @@ public class SentenceGeneratorImpl implements SentenceGenerator {
 
     @Override
     public String getSentence() {
-
         int lengthSentence = RANDOM.nextInt(MAX_LENGTH) + MIN_LENGTH;
         StringBuilder sbSentence = new StringBuilder();
 
@@ -37,23 +38,23 @@ public class SentenceGeneratorImpl implements SentenceGenerator {
             if (i == 0) {
                 sbSentence.append(wordGenerator.getWord());
                 if (RANDOM.nextInt(4) == 1 && lengthSentence != 1) {
-                    sbSentence.append(',');
+                    sbSentence.append(comma);
                 }
             } else {
-                sbSentence.append(' ').append(wordGenerator.getWord().toLowerCase());
+                sbSentence.append(space).append(wordGenerator.getWord().toLowerCase());
                 if (RANDOM.nextInt(4) == 1 && i != (lengthSentence - 1)) {
-                    sbSentence.append(',');
+                    sbSentence.append(comma);
                 }
             }
         }
 
         int punctuationMark = RANDOM.nextInt(3);
         if (punctuationMark == 0) {
-            sbSentence.append(ENDS.get(punctuationMark)).append(" ");
+            sbSentence.append(ENDS.get(punctuationMark)).append(space);
         } else if (punctuationMark == 1) {
-            sbSentence.append(ENDS.get(punctuationMark)).append(" ");
+            sbSentence.append(ENDS.get(punctuationMark)).append(space);
         } else {
-            sbSentence.append(ENDS.get(punctuationMark)).append(" ");
+            sbSentence.append(ENDS.get(punctuationMark)).append(space);
         }
         return new String(sbSentence);
     }

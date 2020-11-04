@@ -10,6 +10,7 @@ public class ParagraphGeneratorImpl implements ParagraphGenerator {
      */
     private static final int MAX_LENGTH = 20;
     private static final int MIN_LENGTH = 1;
+    private static final String linefeed = "\n";
 
     Random RANDOM = new Random();
     private final SentenceGenerator sentenceGenerator;
@@ -25,7 +26,7 @@ public class ParagraphGeneratorImpl implements ParagraphGenerator {
 
         for (int i = 0; i < lengthParagraph; i++) {
             if (i == (lengthParagraph - 1)) {
-                sbParagraph.append(sentenceGenerator.getSentence()).append("\n");
+                sbParagraph.append(sentenceGenerator.getSentence()).append(linefeed);
             } else {
                 sbParagraph.append(sentenceGenerator.getSentence());
             }

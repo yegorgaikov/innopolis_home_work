@@ -20,6 +20,16 @@ public class WordGeneratorImpl implements WordGenerator {
     private final List<String> array;
     private final int probability;
 
+    //Строчные буквы из Unicode
+    private static final int MINLOWER = 97;
+    private static final int MAXLOWER = 122;
+    private static final int DIFFLOWER = MAXLOWER - MINLOWER;
+
+    //Заглавные буквы из Unicode
+    private static final int MINUPPER = 65;
+    private static final int MAXUPPER = 90;
+    private static final int DIFFUPPER = MAXUPPER - MINUPPER;
+
     public WordGeneratorImpl(List<String> array, int probability) {
         this.array = array;
         this.probability = probability;
@@ -34,17 +44,6 @@ public class WordGeneratorImpl implements WordGenerator {
     }
 
     private String getRandomWord() {
-
-        //Строчные буквы из Unicode
-        final int MINLOWER = 97;
-        final int MAXLOWER = 122;
-        final int DIFFLOWER = MAXLOWER - MINLOWER;
-
-        //Заглавные буквы из Unicode
-        final int MINUPPER = 65;
-        final int MAXUPPER = 90;
-        final int DIFFUPPER = MAXUPPER - MINUPPER;
-
         int lengthWord = RANDOM.nextInt(MAX_LENGTH) + MIN_LENGTH;
         StringBuilder sbWord = new StringBuilder();
 
