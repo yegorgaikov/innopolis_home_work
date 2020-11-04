@@ -1,14 +1,14 @@
 package root.lesson_3;
 
 import org.junit.Before;
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.Assert.*;
 
-class ObjectBoxTest {
+public class ObjectBoxTest {
 
     ObjectBox<String> objectBox = new ObjectBox<>(init());
 
@@ -23,18 +23,18 @@ class ObjectBoxTest {
     }
 
     @Test
-    void addObject() {
+    public void addObject() {
         objectBox.addObject("Shalom");
         objectBox.dump();
     }
 
     @Test
-    void deleteObject() {
+    public void deleteObject() {
         objectBox.deleteObject("Bonjour");
         objectBox.dump();
     }
 
     @Test
-    void dump() {
+    public void dump() {
     }
 }

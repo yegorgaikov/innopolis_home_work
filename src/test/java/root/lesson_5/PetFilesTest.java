@@ -1,10 +1,14 @@
 package root.lesson_5;
 
-import org.junit.jupiter.api.Test;
+import org.junit.Before;
+import org.junit.Test;
 import root.lesson_2.task_3.Person;
 import root.lesson_2.task_3.Sex;
 
-class PetFilesTest {
+import static org.junit.Assert.*;
+
+public class PetFilesTest {
+
     PetFiles pf = new PetFiles();
 
     Pet pet1 = new Pet("Mailo", new Person(24, Sex.WOMAN, "Mary"), 7.5f );
@@ -19,36 +23,30 @@ class PetFilesTest {
 
     Pet pet25 = new Pet("John", new Person(24, Sex.WOMAN, "Mary"), 5.5f );
 
-    @Test
-    void addPet() throws DublicateException {
+    @Before
+    public void init() throws DublicateException {
         pf.addPet(pet1);
         pf.addPet(pet2);
         pf.addPet(pet3);
         pf.addPet(pet4);
         pf.addPet(pet5);
+    }
 
+    @Test
+    public void addPet() throws DublicateException {
         pf.printListOfPets();
         pf.addPet(duplicatePet);
         pf.printListOfPets();
     }
 
     @Test
-    void searchByName() throws DublicateException {
-        pf.addPet(pet1);
-        pf.addPet(pet2);
-        pf.addPet(pet3);
-        pf.addPet(pet4);
-        pf.addPet(pet5);
-
+    public void searchByName() {
         System.out.println(pf.searchByName("Markiz"));
-
     }
 
     @Test
-    void changingDataById() throws DublicateException {
+    public void changingDataById() {
         System.out.println("Картотека до замены:");
-        pf.addPet(pet1);
-        pf.addPet(pet2);
         pf.printListOfPets();
 
         System.out.println("Картотека после замены:");
@@ -57,13 +55,7 @@ class PetFilesTest {
     }
 
     @Test
-    void printListOfPets() throws DublicateException {
-        pf.addPet(pet1);
-        pf.addPet(pet2);
-        pf.addPet(pet3);
-        pf.addPet(pet4);
-        pf.addPet(pet5);
-
+    public void printListOfPets() {
         pf.printListOfPets();
     }
 }

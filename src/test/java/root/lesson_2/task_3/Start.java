@@ -1,10 +1,12 @@
 package root.lesson_2.task_3;
 
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+
+import static org.junit.Assert.*;
 
 public class Start {
 
@@ -15,7 +17,6 @@ public class Start {
 
     @Test
     public void testQuickSort() throws IncorrectPersonException {
-
         final List<Person> personListQuickSort = personList;
 
         MegaSort megaSortQuick = new QuickSortImpl();
@@ -38,7 +39,6 @@ public class Start {
         personListBubbleSort.forEach(System.out::println);
         System.out.println("Время работы сортировки пузырьком: " +
                 (endTimeSelectionSortBubble - startTimeSelectionSortBubble) + "ms");
-
     }
 
     private List<Person> getPerson(int num) {

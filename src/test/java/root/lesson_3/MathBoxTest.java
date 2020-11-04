@@ -1,16 +1,16 @@
 package root.lesson_3;
 
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
 import static java.util.Arrays.asList;
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.Assert.*;
 
-class MathBoxTest {
+public class MathBoxTest {
 
     MathBox<Double> mathBox = new MathBox<>(asList(1d, 2d, 3d, 4d, 5d));
 
     @Test
-    void summator() {
+    public void summator() {
         System.out.println("Изначальный объект:");
         mathBox.dump();
         System.out.println("HashCode объекта: " + mathBox.hashCode());
@@ -32,7 +32,7 @@ class MathBoxTest {
     }
 
     @Test
-    void splitter() {
+    public void splitter() {
         mathBox.deleteObject(5d);
         mathBox.dump();
         mathBox.splitter(3d);
@@ -40,7 +40,7 @@ class MathBoxTest {
     }
 
     @Test
-    void remove() {
+    public void remove() {
         mathBox.remove(4);
         mathBox.dump();
     }

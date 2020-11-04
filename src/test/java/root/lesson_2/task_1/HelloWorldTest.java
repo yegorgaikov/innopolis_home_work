@@ -1,29 +1,29 @@
 package root.lesson_2.task_1;
 
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.Assert.*;
 
-class HelloWorldTest {
+public class HelloWorldTest {
 
     HelloWorld hw = new HelloWorld();
 
     @Test
-    void nullPointerExceptionMethod() {
+    public void nullPointerExceptionMethod() {
         int[] array = null;
         System.out.println("Hello, World!");
         hw.nullPointerExceptionMethod(array);
     }
 
     @Test
-    void arrayIndexOutOfBoundsExceptionMethod() {
-        System.out.println("Hello, World!");
-        hw.arrayIndexOutOfBoundsExceptionMethod();
+    public void arrayIndexOutOfBoundsExceptionMethod() {
+            System.out.println("Hello, World!");
+            hw.arrayIndexOutOfBoundsExceptionMethod();
     }
 
     @Test
-    void myExceptionMethod() throws Exception {
-        System.out.println("Hello, World!");
-        hw.myExceptionMethod();
+    public void myExceptionMethod() throws Exception {
+            System.out.println("Hello, World!");
+            hw.myExceptionMethod();
     }
 }
