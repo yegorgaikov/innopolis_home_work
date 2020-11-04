@@ -6,6 +6,14 @@ import java.util.Random;
 
 public class WordGeneratorImpl implements WordGenerator {
 
+    /**
+     * Генерация слова.
+     * В слове от 1 до 15 букв.
+     * Есть массив слов размером от 1 до 1000 слов, есть вероятность probability вхождения одного из слов этого
+     * массива в следующее предложение. Рандомно генерируем число от 0 до 100, если это число больше вероятности,
+     * то генерируем рандомное слова методом getRandomWord(), если меньше, то берем слово из массива методом
+     * fromArrayWord().
+     */
     private static final int MAX_LENGTH = 15;
     private static final int MIN_LENGTH = 1;
     private static final Random RANDOM = new Random();
@@ -67,7 +75,6 @@ public class WordGeneratorImpl implements WordGenerator {
      * далее первый элемент этого массива переводим в верхний регистр и потом собираем обратно слово по символам
      * в один String с помощью StringBuilder и его метода append().
      */
-
     private String fromArrayWord() {
         int i = RANDOM.nextInt(array.size());
         String word = array.get(i).toLowerCase();

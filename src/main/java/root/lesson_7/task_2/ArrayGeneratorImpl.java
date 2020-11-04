@@ -8,6 +8,10 @@ public class ArrayGeneratorImpl implements ArrayGenerator {
 
     Random RANDOM = new Random();
 
+    /**
+     * Генерация массива слов.
+     * Массив имеет размер от 1 до 1000 слов.
+     */
     @Override
     public List<String> getArray() {
         final int MAX_LENGTH_WORD = 15;

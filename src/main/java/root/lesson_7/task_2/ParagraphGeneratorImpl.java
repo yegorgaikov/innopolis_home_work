@@ -4,6 +4,10 @@ import java.util.Random;
 
 public class ParagraphGeneratorImpl implements ParagraphGenerator {
 
+    /**
+     * Генерация абзаца.
+     * В абзаце от 1 до 20 предложений.
+     */
     private static final int MAX_LENGTH = 20;
     private static final int MIN_LENGTH = 1;
 
@@ -23,7 +27,7 @@ public class ParagraphGeneratorImpl implements ParagraphGenerator {
             if (i == (lengthParagraph - 1)) {
                 sbParagraph.append(sentenceGenerator.getSentence()).append("\n");
             } else {
-                sbParagraph.append(sentenceGenerator.getSentence()).append(" ");
+                sbParagraph.append(sentenceGenerator.getSentence());
             }
         }
         return new String(sbParagraph);

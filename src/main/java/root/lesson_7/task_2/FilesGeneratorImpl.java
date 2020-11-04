@@ -6,6 +6,11 @@ import java.util.List;
 
 public class FilesGeneratorImpl implements FilesGenerator {
 
+    /**
+     * Создаются n текстовых файлов размером size в каталоге path. Делаем это методом getFiles, который помимо
+     * указанных параметров принимает также массив слов words и вероятность вхождения слова из массива в
+     * предложение probability.
+     */
     @Override
     public void getFiles(String path, int n, int size, List<String> words, int probability) {
         StringBuilder sbText = new StringBuilder();
