@@ -6,7 +6,20 @@ import java.util.Random;
 
 public class ArrayGeneratorImpl implements ArrayGenerator {
 
-    Random RANDOM = new Random();
+    private static Random RANDOM = new Random();
+    private static final int MAX_LENGTH_WORD = 15;
+    private static final int MAX_LENGTH_ARRAY = 1000;
+    private static final int MIN_LENGTH = 1;
+
+    //Строчные буквы из Unicode
+    private static final int MINLOWER = 97;
+    private static final int MAXLOWER = 122;
+    private static final int DIFFLOWER = MAXLOWER - MINLOWER;
+
+    //Заглавные буквы из Unicode
+    private static final int MINUPPER = 65;
+    private static final int MAXUPPER = 90;
+    private static final int DIFFUPPER = MAXUPPER - MINUPPER;
 
     /**
      * Генерация массива слов.
@@ -14,24 +27,10 @@ public class ArrayGeneratorImpl implements ArrayGenerator {
      */
     @Override
     public List<String> getArray() {
-        final int MAX_LENGTH_WORD = 15;
-        final int MAX_LENGTH_ARRAY = 1000;
-        final int MIN_LENGTH = 1;
-
         int arrayLength = RANDOM.nextInt(MAX_LENGTH_ARRAY) + MIN_LENGTH;
         List<String> array = new ArrayList<>(arrayLength);
 
         for (int i = 0; i < arrayLength; i++) {
-            //Строчные буквы из Unicode
-            final int MINLOWER = 97;
-            final int MAXLOWER = 122;
-            final int DIFFLOWER = MAXLOWER - MINLOWER;
-
-            //Заглавные буквы из Unicode
-            final int MINUPPER = 65;
-            final int MAXUPPER = 90;
-            final int DIFFUPPER = MAXUPPER - MINUPPER;
-
             int lengthWord = RANDOM.nextInt(MAX_LENGTH_WORD) + MIN_LENGTH;
             StringBuilder sbWord = new StringBuilder();
 
