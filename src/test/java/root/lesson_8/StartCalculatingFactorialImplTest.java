@@ -7,8 +7,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
 
-import static org.junit.Assert.*;
-
 public class StartCalculatingFactorialImplTest {
 
     List<Integer> list = new ArrayList<>();
@@ -20,6 +18,7 @@ public class StartCalculatingFactorialImplTest {
         list.add(2);
         list.add(0);
         list.add(20);
+        list.add(10);
     }
 
     @Test

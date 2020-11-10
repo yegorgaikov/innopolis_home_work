@@ -9,8 +9,8 @@ import java.util.concurrent.Callable;
 
 public class CalculatingFactorialImpl implements CalculatingFactorial, Callable<BigInteger> {
 
-    private static int num;
-    private static Map<Integer, BigInteger> map;
+    private final int num;
+    private final Map<Integer, BigInteger> map;
 
     public CalculatingFactorialImpl(int num, Map<Integer, BigInteger> map) {
         this.num = num;
@@ -48,7 +48,6 @@ public class CalculatingFactorialImpl implements CalculatingFactorial, Callable<
                 }
             }
             Collections.sort(list);
-            System.out.println(list);
 
             BigInteger result;
             if (!list.isEmpty()) {
@@ -56,6 +55,7 @@ public class CalculatingFactorialImpl implements CalculatingFactorial, Callable<
                 int numNext = list.get(list.size() - 1) + 1;
                 for (int i = numNext; i <= num; i++) {
                     result = result.multiply(BigInteger.valueOf(i));
+                    map.put(i, result);
                 }
             } else {
                 result = BigInteger.valueOf(1);
@@ -70,7 +70,7 @@ public class CalculatingFactorialImpl implements CalculatingFactorial, Callable<
     }
 
     @Override
-    public BigInteger call() throws Exception {
+    public BigInteger call() {
         return factorial(num, map);
     }
 }
