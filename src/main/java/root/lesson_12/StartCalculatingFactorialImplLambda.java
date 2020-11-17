@@ -12,6 +12,7 @@ import java.util.concurrent.Future;
 
 public class StartCalculatingFactorialImplLambda {
     private final List<Integer> list;
+    private static final List<Future<BigInteger>> futuresList = new ArrayList<>();
     private static final List<BigInteger> bigIntegerList = new ArrayList<>();
     private static final Map<Integer, BigInteger> map = new HashMap<>();
 
@@ -26,7 +27,11 @@ public class StartCalculatingFactorialImplLambda {
             for (Integer i : list) {
                 CalculatingFactorialImplLambda calculatingFactorial = new CalculatingFactorialImplLambda(i, map);
                 Future<BigInteger> future = service.submit(calculatingFactorial);
-                bigIntegerList.add(future.get());
+                futuresList.add(future);
+            }
+
+            for (Future<BigInteger> f : futuresList) {
+                bigIntegerList.add(f.get());
             }
             return bigIntegerList;
         });
