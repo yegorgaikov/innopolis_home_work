@@ -2,18 +2,15 @@ package root.lesson_8;
 
 import java.math.BigInteger;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.concurrent.ExecutionException;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.Future;
+import java.util.concurrent.*;
 
 public class StartCalculatingFactorialImpl implements StartCalculatingFactorial {
     private final List<Integer> list;
+    private static final List<Future<BigInteger>> futuresList = new ArrayList<>();
     private static final List<BigInteger> bigIntegerList = new ArrayList<>();
-    private static final Map<Integer, BigInteger> map = new HashMap<>();
+    private static final Map<Integer, BigInteger> map = new ConcurrentHashMap<>();
 
     public StartCalculatingFactorialImpl(List<Integer> list) {
         this.list = list;
@@ -27,8 +24,13 @@ public class StartCalculatingFactorialImpl implements StartCalculatingFactorial 
         for (Integer i : list) {
             CalculatingFactorialImpl calculatingFactorial = new CalculatingFactorialImpl(i, map);
             Future<BigInteger> future = service.submit(calculatingFactorial);
-            bigIntegerList.add(future.get());
+            futuresList.add(future);
         }
+
+        for (Future<BigInteger> f : futuresList) {
+            bigIntegerList.add(f.get());
+        }
+
         return bigIntegerList;
     }
 
