@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-public class Solution {
+public class OutOfMemoryError {
     private static List<Object> list = new ArrayList<>();
 
     public void add() {
