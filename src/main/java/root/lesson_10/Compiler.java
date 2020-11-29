@@ -9,12 +9,14 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class SomeClassCompiler {
+public class Compiler {
 
-    private String path = "src\\main\\java\\root\\lesson_10\\SomeClass.java";
+    private final String path = "src\\main\\java\\root\\lesson_10\\";
+    private final String name = "SomeClass";
+    private final String JAVA = ".java";
     private StringBuilder builder;
 
-    public SomeClassCompiler() {
+    public Compiler() {
         builder = new StringBuilder();
     }
 
@@ -24,20 +26,21 @@ public class SomeClassCompiler {
     }
 
     private void javac(String codeClass) {
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter(path))) {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(path + name + JAVA))) {
             writer.write(codeClass);
         } catch (IOException e) {
-            e.printStackTrace();
+            System.out.println("Ошибка компиляции" + e);
         }
         JavaCompiler javaCompiler = ToolProvider.getSystemJavaCompiler();
-        javaCompiler.run(null, null,null, path);
+        javaCompiler.run(null, null, null, path + name + JAVA);
     }
-
 
     public String buildSomeClass() {
         builder.append("package root.lesson_10;"
                 + "\n"
-                + "public class SomeClass implements Worker{"
+                + "public class "
+                + name
+                + " implements Worker{"
                 + "\n"
                 + "@Override"
                 + "\n"
